@@ -26,7 +26,7 @@ def test_label_values(df):
     string={'positive',
             'negative',
             'recovered',
-            'unknown'}
+            'untested'}
     for s in df['pcr_test_result_inferred']:
         if not set([s]).issubset(string):
             return False
