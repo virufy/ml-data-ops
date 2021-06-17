@@ -14,6 +14,7 @@ def test_column_names(df):
                 'audio_path',
                 'audio_type',
                 'country',
+                'age',
                 'source',
                 'pcr_test_result',
                 'pcr_test_result_inferred']).issubset(df.columns):
@@ -26,7 +27,7 @@ def test_label_values(df):
     string={'positive',
             'negative',
             'recovered',
-            'unknown'}
+            'untested'}
     for s in df['pcr_test_result_inferred']:
         if not set([s]).issubset(string):
             return False
