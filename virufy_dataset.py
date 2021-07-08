@@ -122,10 +122,11 @@ class VirufyDataset:
         # Download the audio files
         # os.system(f"aws s3 cp s3://{dataset_name}/{dataset_name}.zip {dataset_name}.zip")
         subprocess.run(['wget', f"https://{dataset_name}.s3.us-east-2.amazonaws.com/{dataset_name}.zip"], check=True)
-        os.system(f"unzip {dataset_name}-val.zip")
-        os.system(f"mv {dataset_name} {audio_dirpath}" )
+        os.system(f"unzip {dataset_name}.zip")
+        os.system(f"mv {dataset_name} {audio_dirpath}")
         os.system(f"rm -rf {dataset_name}.zip")
 
         # Download the csv
         subprocess.run(['wget', f"https://{dataset_name}.s3.us-east-2.amazonaws.com/{dataset_name}.csv"], check=True)
-        os.system(f"mv {dataset_dir / f'{dataset_name}.csv'} {label_filepath}")
+        # os.system(f"mv {dataset_dir / f'{dataset_name}.csv'} {label_filepath}")
+        os.system(f"mv {dataset_name}.csv {dataset_dir}")
